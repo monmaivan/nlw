@@ -33,10 +33,8 @@ function getCities(event) {
         for( const city of cities) {
             citySelect.innerHTML += `<option value ="${city.id}">${city.nome}</option>` /*uFSelect.innerHTML = uFSelect.innerHTML + `<option value ="1">Valor</}option>`*/
         }
-        citySelect.disable = false
+        citySelect.disabled = false
     } )
-}
-
 }
 
 document
