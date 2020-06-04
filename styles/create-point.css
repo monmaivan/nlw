@@ -85,7 +85,7 @@ form label {
     margin-bottom: 8px;
 }
 
-form .fiel-group .field + .field {
+form .field-group .field + .field {
     margin-left: 24px;
 }
 
