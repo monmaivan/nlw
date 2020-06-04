@@ -26,12 +26,15 @@ function getCities(event) {
 
     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
 
+    citySelect.innerHTML = "<option value>Selecione a Cidade</option>"
+    citySelect.disabled = true
+
     fetch(url)
     .then( (res) => res.json() ) /* .then( (res) => { return res.json() }) */
     .then( cities => {
 
         for( const city of cities) {
-            citySelect.innerHTML += `<option value ="${city.id}">${city.nome}</option>` /*uFSelect.innerHTML = uFSelect.innerHTML + `<option value ="1">Valor</}option>`*/
+            citySelect.innerHTML += `<option value ="${city.nome}">${city.nome}</option>` /*uFSelect.innerHTML = uFSelect.innerHTML + `<option value ="1">Valor</}option>`*/
         }
         citySelect.disabled = false
     } )
@@ -42,7 +45,21 @@ document
     .addEventListener("change", getCities)
 
 
+// items de coleta
+// pegar todos os li´s
 
+const itemsToCollect = document.querySelectorAll(".items-grid li")
 
+for (const item of itemsToCollect) {
+    item.addEventListener("click", handleSelectedItem)
+}
 
+function handleSelectedItem(event) {
+    const itemLi = event.target
+
+    //adicionar ou remover uma classe com js
+    itemLi.classList.add.toggle("selected")
     
+    const itemId = itemLi.dataset.id
+
+}
